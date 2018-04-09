@@ -23,14 +23,11 @@ Chai.use(require('chai-things'));
 const Fs = require('fs');
 const Path = require('path');
 
-describe('ergo-compiler', () => {
-    describe('#compilehello', function () {
-        it('should compile a smart Ergo clause with contract/clause names', async function () {
-            const ergoText = Fs.readFileSync(Path.resolve(__dirname, 'data/volumediscount', 'logic.ergo'), 'utf8');
-            const ctoText = Fs.readFileSync(Path.resolve(__dirname, 'data/volumediscount', 'model.cto'), 'utf8');
-            const result = await Ergo.compile(ergoText, ctoText, 'VolumeDiscount', null, false);
-            result.should.not.be.null;
-            console.log(result);
-        });
+describe('ergo-compiler-node', () => {
+    it('should compile the volumediscount Ergo smart contract with contract name', async function () {
+        const ergoText = Fs.readFileSync(Path.resolve(__dirname, 'data/volumediscount', 'logic.ergo'), 'utf8');
+        const ctoText = Fs.readFileSync(Path.resolve(__dirname, 'data/volumediscount', 'model.cto'), 'utf8');
+        const result = await Ergo.compile(ergoText, ctoText, 'VolumeDiscount', null, false);
+        result.should.not.be.null;
     });
 });
