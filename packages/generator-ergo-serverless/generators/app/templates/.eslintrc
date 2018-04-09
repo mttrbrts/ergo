@@ -1,0 +1,21 @@
+{
+  "extends": ["airbnb/base"],
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
+  "rules": {
+    "consistent-return": 0,
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "no-unused-expressions": 0,
+    "prefer-destructuring": 0,
+    "no-console":"off"
+  },
+  "env": {
+    "node": true,
+    "jest/globals": true
+  },
+  "plugins": [
+    "jest"
+  ]
+}

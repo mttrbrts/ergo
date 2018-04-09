@@ -1,0 +1,6 @@
+{
+	"clause": "<%= data.clauseName %>",
+	"request": <%= data.requestJson %>,
+	"contractData": <%= data.contractJson %>,
+	"state": {}
+}

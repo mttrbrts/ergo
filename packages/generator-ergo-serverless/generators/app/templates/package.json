@@ -1,0 +1,61 @@
+{
+  "name": "ergo-serverless-<%= data.contractName %>",
+  "version": "0.0.1",
+  "private": true,
+  "description": "function for contract execution",
+  "license": "LicenseRef-LICENSE",
+  "author": "Clause Inc.",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "jest",
+    "posttest": "npm run lint",
+    "deploy": "serverless deploy",
+    "redeploy": "serverless deploy function -f ciceroTemplate",
+    "invoke": "serverless invoke -f=ciceroTemplate -l -p event.json",
+    "invoke:local": "serverless invoke local -f=ciceroTemplate -l -p event.json"
+  },
+  "dependencies": {
+    "@accordproject/ergo-engine": "0.0.37",
+    "moment": "^2.22.0"
+  },
+  "devDependencies": {
+    "cicero-core": "^0.2.46",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.12.3",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "istanbul-combine": "^0.3.0",
+    "jest": "^22.4.2",
+    "serverless": "^1.26.1",
+    "serverless-openwhisk": "^0.12.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "node"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "text"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/data/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/template.js"
+    ]
+  },
+  "engines": {
+    "node": ">=8.10"
+  }
+}

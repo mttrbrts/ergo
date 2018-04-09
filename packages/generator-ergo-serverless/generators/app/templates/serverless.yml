@@ -1,0 +1,21 @@
+service: ciceroTemplate
+
+provider:
+  name: openwhisk
+  runtime: nodejs:8
+
+package:
+  exclude:
+    - __tests__/**
+    - coverage/**
+
+functions:
+  ciceroTemplate:
+    handler: handler.ciceroTemplate
+    events:
+      - http: POST execute
+    environment:
+      NODE_ENV: ${env:NODE_ENV, 'dev'}
+
+plugins:
+  - serverless-openwhisk
